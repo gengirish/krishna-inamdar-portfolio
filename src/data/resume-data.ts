@@ -12,6 +12,7 @@ export const personalInfo = {
   github: "",
   email: "",
   phone: "848-448-6404",
+  languages: "English",
 };
 
 export const stats = [
