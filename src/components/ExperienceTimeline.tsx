@@ -20,7 +20,7 @@ export default function ExperienceTimeline() {
           <div className="flex items-center gap-3 mb-12">
             <div className="h-px flex-1 bg-gradient-to-r from-neural-green/50 to-transparent" />
             <span className="text-neural-green font-mono text-sm">03</span>
-            <h2 className="text-3xl sm:text-4xl font-bold">Career Timeline</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-theme-fg">Career Timeline</h2>
             <div className="h-px flex-1 bg-gradient-to-l from-neural-green/50 to-transparent" />
           </div>
         </motion.div>
@@ -43,7 +43,7 @@ export default function ExperienceTimeline() {
                 <div
                   className={`hidden md:block w-1/2 ${isLeft ? "text-right pr-12" : "text-left pl-12"}`}
                 >
-                  <span className="text-xs font-mono text-gray-500">
+                  <span className="text-xs font-mono text-theme-fg-muted">
                     EPOCH {exp.epoch} — {exp.phase}
                   </span>
                 </div>
@@ -76,20 +76,20 @@ export default function ExperienceTimeline() {
                         >
                           {exp.domain}
                         </span>
-                        <h3 className="text-lg font-bold text-white">
+                        <h3 className="text-lg font-bold text-theme-fg">
                           {exp.title}
                         </h3>
-                        <div className="flex items-center gap-2 text-gray-400 text-sm mt-1">
+                        <div className="flex items-center gap-2 text-theme-fg-muted text-sm mt-1">
                           <Building2 size={14} />
                           <span>{exp.company}</span>
                         </div>
-                        <span className="text-xs text-gray-500 font-mono">
+                        <span className="text-xs text-theme-fg-muted font-mono">
                           {exp.period}
                         </span>
                       </div>
                     </div>
 
-                    <p className="text-gray-400 text-sm mb-4">
+                    <p className="text-theme-fg-muted text-sm mb-4">
                       {exp.description}
                     </p>
 
@@ -97,7 +97,7 @@ export default function ExperienceTimeline() {
                       {exp.highlights.map((h) => (
                         <li
                           key={h}
-                          className="text-sm text-gray-300 flex items-start gap-2"
+                          className="text-sm text-theme-fg-soft flex items-start gap-2"
                         >
                           <span
                             className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"
@@ -112,7 +112,7 @@ export default function ExperienceTimeline() {
                       {exp.tech.map((t) => (
                         <span
                           key={t}
-                          className="px-2 py-0.5 text-xs rounded bg-neural-surface text-gray-400 border border-neural-border/30"
+                          className="px-2 py-0.5 text-xs rounded bg-neural-surface text-theme-fg-muted border border-neural-border/30"
                         >
                           {t}
                         </span>

@@ -19,7 +19,7 @@ export default function SkillDNA() {
           <div className="flex items-center gap-3 mb-12">
             <div className="h-px flex-1 bg-gradient-to-r from-neural-cyan/50 to-transparent" />
             <span className="text-neural-cyan font-mono text-sm">03.5</span>
-            <h2 className="text-3xl sm:text-4xl font-bold">Career Graph</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-theme-fg">Career Graph</h2>
             <div className="h-px flex-1 bg-gradient-to-l from-neural-cyan/50 to-transparent" />
           </div>
         </motion.div>
@@ -31,7 +31,7 @@ export default function SkillDNA() {
             transition={{ delay: 0.2 }}
             className="glass-card p-6"
           >
-            <h3 className="text-lg font-semibold text-white mb-6">
+            <h3 className="text-lg font-semibold text-theme-fg mb-6">
               Career Network
             </h3>
             <div className="relative min-h-[300px]">
@@ -47,11 +47,11 @@ export default function SkillDNA() {
                     { x: 280, y: 200 },
                     { x: 350, y: 100 },
                     { x: 430, y: 160 },
-                  ];
+                  ] as const;
 
                   return (
                     <motion.line
-                      key={idx}
+                      key={`conn-${idx}-${conn.from}-${conn.to}`}
                       x1={positions[fromNode]?.x}
                       y1={positions[fromNode]?.y}
                       x2={positions[toNode]?.x}
@@ -72,7 +72,7 @@ export default function SkillDNA() {
                     { x: 280, y: 200 },
                     { x: 350, y: 100 },
                     { x: 430, y: 160 },
-                  ];
+                  ] as const;
                   const pos = positions[idx];
 
                   return (
@@ -123,7 +123,7 @@ export default function SkillDNA() {
             transition={{ delay: 0.3 }}
             className="glass-card p-6"
           >
-            <h3 className="text-lg font-semibold text-white mb-6">
+            <h3 className="text-lg font-semibold text-theme-fg mb-6">
               Skill Progression
             </h3>
             <div className="space-y-6">
@@ -138,7 +138,7 @@ export default function SkillDNA() {
                     <span className="text-sm font-medium" style={{ color: skill.color }}>
                       {skill.skill}
                     </span>
-                    <span className="text-xs text-gray-500 font-mono">
+                    <span className="text-xs text-theme-fg-subtle font-mono">
                       {skill.milestones[skill.milestones.length - 1].level}%
                     </span>
                   </div>
@@ -158,8 +158,11 @@ export default function SkillDNA() {
                     />
                   </div>
                   <div className="flex justify-between mt-1">
-                    {skill.milestones.map((ms) => (
-                      <span key={ms.year} className="text-[10px] text-gray-600 font-mono">
+                    {skill.milestones.map((ms, mi) => (
+                      <span
+                        key={`${skill.skill}-${ms.company}-${ms.year}-${mi}`}
+                        className="text-[10px] text-theme-fg-subtle font-mono"
+                      >
                         {ms.year}
                       </span>
                     ))}

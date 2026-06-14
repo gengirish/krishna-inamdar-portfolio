@@ -20,7 +20,7 @@ export default function ProjectShowcase() {
           <div className="flex items-center gap-3 mb-12">
             <div className="h-px flex-1 bg-gradient-to-r from-neural-amber/50 to-transparent" />
             <span className="text-neural-amber font-mono text-sm">04</span>
-            <h2 className="text-3xl sm:text-4xl font-bold">Key Initiatives</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-theme-fg">Key Initiatives</h2>
             <div className="h-px flex-1 bg-gradient-to-l from-neural-amber/50 to-transparent" />
           </div>
         </motion.div>
@@ -46,18 +46,18 @@ export default function ProjectShowcase() {
                   >
                     {project.domain}
                   </span>
-                  <h3 className="text-xl font-bold text-white">
+                  <h3 className="text-xl font-bold text-theme-fg">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-gray-500">{project.client}</p>
+                  <p className="text-sm text-theme-fg-subtle">{project.client}</p>
                 </div>
                 <ExternalLink
                   size={18}
-                  className="text-gray-600 group-hover:text-neural-cyan transition-colors"
+                  className="text-theme-fg-subtle group-hover:text-neural-cyan transition-colors"
                 />
               </div>
 
-              <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+              <p className="text-theme-fg-muted text-sm mb-4 leading-relaxed">
                 {project.description}
               </p>
 
@@ -70,7 +70,7 @@ export default function ProjectShowcase() {
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="px-2 py-0.5 text-xs rounded border border-neural-border/30 text-gray-400 bg-neural-bg/50"
+                    className="px-2 py-0.5 text-xs rounded border border-neural-border/30 text-theme-fg-muted bg-neural-bg/50"
                   >
                     {t}
                   </span>

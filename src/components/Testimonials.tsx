@@ -22,7 +22,7 @@ export default function Testimonials() {
           <div className="flex items-center gap-3 mb-12">
             <div className="h-px flex-1 bg-gradient-to-r from-neural-pink/50 to-transparent" />
             <span className="text-neural-pink font-mono text-sm">05</span>
-            <h2 className="text-3xl sm:text-4xl font-bold">Testimonials</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-theme-fg">Testimonials</h2>
             <div className="h-px flex-1 bg-gradient-to-l from-neural-pink/50 to-transparent" />
           </div>
         </motion.div>
@@ -40,14 +40,14 @@ export default function Testimonials() {
                 size={32}
                 className="text-neural-purple/20 absolute top-4 right-4"
               />
-              <p className="text-gray-300 text-sm leading-relaxed mb-6 italic">
+              <p className="text-theme-fg-soft text-sm leading-relaxed mb-6 italic">
                 {testimonial.text}
               </p>
               <div className="border-t border-neural-border/20 pt-4">
-                <p className="text-sm font-semibold text-white">
+                <p className="text-sm font-semibold text-theme-fg">
                   {testimonial.author}
                 </p>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-theme-fg-subtle">
                   {testimonial.relationship}
                 </p>
               </div>

@@ -2,17 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Default = light (matches ThemeProvider + boot script) */
+:root {
+  --theme-fg: 15 23 42;
+  --theme-fg-soft: 51 65 85;
+  --theme-fg-muted: 71 85 105;
+  --theme-fg-subtle: 100 116 139;
+  --neural-bg: 248 250 252;
+  --neural-surface: 241 245 249;
+  --neural-card: 255 255 255;
+  --neural-border: 226 232 240;
+}
+
+:root[data-theme="dark"] {
+  --theme-fg: 248 250 252;
+  --theme-fg-soft: 203 213 225;
+  --theme-fg-muted: 148 163 184;
+  --theme-fg-subtle: 100 116 139;
+  --neural-bg: 2 6 23;
+  --neural-surface: 15 23 42;
+  --neural-card: 30 41 59;
+  --neural-border: 51 65 85;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-neural-bg text-gray-100 antialiased;
+    @apply bg-neural-bg text-theme-fg antialiased;
   }
 
   ::selection {
-    @apply bg-neural-cyan/30 text-white;
+    background-color: rgba(6, 182, 212, 0.28);
+    color: rgb(var(--theme-fg) / 1);
   }
 }
 
@@ -29,38 +53,64 @@
 
   .glass {
     @apply backdrop-blur-xl border border-neural-border/50;
-    background: rgba(15, 23, 42, 0.7);
+    background: rgba(255, 255, 255, 0.82);
   }
 
   .glass-card {
-    @apply backdrop-blur-xl border border-neural-border/30 rounded-2xl;
-    background: rgba(30, 41, 59, 0.5);
+    @apply backdrop-blur-xl border border-neural-border/40 rounded-2xl;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  :root[data-theme="dark"] .glass {
+    background: rgba(15, 23, 42, 0.72);
+  }
+
+  :root[data-theme="dark"] .glass-card {
+    background: rgba(30, 41, 59, 0.55);
   }
 
   .glow-cyan {
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3), 0 0 40px rgba(6, 182, 212, 0.1);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.22), 0 0 40px rgba(6, 182, 212, 0.08);
   }
 
   .glow-purple {
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3), 0 0 40px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.22), 0 0 40px rgba(99, 102, 241, 0.08);
   }
 
   .glow-cyan-sm {
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.15), 0 0 20px rgba(6, 182, 212, 0.06);
+  }
+
+  :root[data-theme="dark"] .glow-cyan {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3), 0 0 40px rgba(6, 182, 212, 0.1);
+  }
+
+  :root[data-theme="dark"] .glow-purple {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3), 0 0 40px rgba(99, 102, 241, 0.1);
+  }
+
+  :root[data-theme="dark"] .glow-cyan-sm {
     box-shadow: 0 0 10px rgba(6, 182, 212, 0.2), 0 0 20px rgba(6, 182, 212, 0.05);
   }
 
   .neural-grid {
     background-image:
+      linear-gradient(rgba(6, 182, 212, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(6, 182, 212, 0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  :root[data-theme="dark"] .neural-grid {
+    background-image:
       linear-gradient(rgba(6, 182, 212, 0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(6, 182, 212, 0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
   }
 }
 
 @layer utilities {
   .scrollbar-thin {
     scrollbar-width: thin;
-    scrollbar-color: #334155 #0f172a;
+    scrollbar-color: rgb(203 213 225) rgb(248 250 252);
   }
 
   .scrollbar-thin::-webkit-scrollbar {
@@ -68,21 +118,38 @@
   }
 
   .scrollbar-thin::-webkit-scrollbar-track {
-    background: #0f172a;
+    background: rgb(241 245 249);
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: #334155;
+    background: rgb(203 213 225);
     border-radius: 3px;
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgb(148 163 184);
+  }
+
+  :root[data-theme="dark"] .scrollbar-thin {
+    scrollbar-color: #334155 #0f172a;
+  }
+
+  :root[data-theme="dark"] .scrollbar-thin::-webkit-scrollbar-track {
+    background: #0f172a;
+  }
+
+  :root[data-theme="dark"] .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #334155;
+  }
+
+  :root[data-theme="dark"] .scrollbar-thin::-webkit-scrollbar-thumb:hover {
     background: #475569;
   }
 }
 
 @keyframes gradient-shift {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
   50% {

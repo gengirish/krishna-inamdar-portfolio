@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import type { Theme } from "@/contexts/ThemeContext";
 
 interface Particle {
   x: number;
@@ -11,7 +12,11 @@ interface Particle {
   color: string;
 }
 
-export default function NeuralNetworkCanvas() {
+interface NeuralNetworkCanvasProps {
+  theme?: Theme;
+}
+
+export default function NeuralNetworkCanvas({ theme = "light" }: NeuralNetworkCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -65,7 +70,8 @@ export default function NeuralNetworkCanvas() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < connectionDistance) {
-            const opacity = (1 - dist / connectionDistance) * 0.15;
+            const lineWeight = theme === "light" ? 0.1 : 0.15;
+            const opacity = (1 - dist / connectionDistance) * lineWeight;
             ctx.beginPath();
             ctx.strokeStyle = `rgba(6, 182, 212, ${opacity})`;
             ctx.lineWidth = 0.5;
@@ -94,16 +100,17 @@ export default function NeuralNetworkCanvas() {
     createParticles();
     animate();
 
-    window.addEventListener("resize", () => {
+    const onResize = () => {
       resize();
       createParticles();
-    });
+    };
+    window.addEventListener("resize", onResize);
 
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", onResize);
     };
-  }, []);
+  }, [theme]);
 
   return (
     <canvas

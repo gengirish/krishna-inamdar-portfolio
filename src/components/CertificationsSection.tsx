@@ -22,7 +22,7 @@ export default function CertificationsSection() {
           <div className="flex items-center gap-3 mb-12">
             <div className="h-px flex-1 bg-gradient-to-r from-neural-green/50 to-transparent" />
             <span className="text-neural-green font-mono text-sm">04.5</span>
-            <h2 className="text-3xl sm:text-4xl font-bold">Certifications</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-theme-fg">Certifications</h2>
             <div className="h-px flex-1 bg-gradient-to-l from-neural-green/50 to-transparent" />
           </div>
         </motion.div>
@@ -37,13 +37,13 @@ export default function CertificationsSection() {
               className="glass-card p-5 hover:border-neural-green/30 transition-colors"
             >
               <Award size={20} className="text-neural-green mb-3" />
-              <h4 className="text-sm font-semibold text-white mb-1">
+              <h4 className="text-sm font-semibold text-theme-fg mb-1">
                 {cert.title}
               </h4>
-              <p className="text-xs text-gray-500 mb-2">
+              <p className="text-xs text-theme-fg-subtle mb-2">
                 {cert.issuer} &middot; {cert.date}
               </p>
-              <p className="text-xs text-gray-400 leading-relaxed">
+              <p className="text-xs text-theme-fg-muted leading-relaxed">
                 {cert.description}
               </p>
             </motion.div>

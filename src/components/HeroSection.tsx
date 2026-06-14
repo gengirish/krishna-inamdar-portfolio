@@ -2,19 +2,21 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Mail, Linkedin, ArrowDown } from "lucide-react";
+import { MapPin, Mail, Phone, Linkedin, ArrowDown } from "lucide-react";
 import NeuralNetworkCanvas from "./NeuralNetworkCanvas";
 import { personalInfo, stats } from "@/data/resume-data";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const roles = [
   "Walmart Account Manager",
-  "Wholesale & Retail Leader",
-  "Data-Driven Account Strategist",
-  "E-commerce Marketplace Operator",
-  "SQL & Excel Power Analyst",
+  "Data & E-commerce Professional",
+  "Marketplace & KPI Operator",
+  "SQL & Excel Analyst",
+  "AI-Assisted Technical Learner",
 ];
 
 export default function HeroSection() {
+  const { theme } = useTheme();
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -44,7 +46,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <NeuralNetworkCanvas />
+      <NeuralNetworkCanvas theme={theme} />
 
       <div className="absolute inset-0 bg-gradient-to-b from-neural-bg via-transparent to-neural-bg" />
 
@@ -54,13 +56,13 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm text-gray-400 mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm text-theme-fg-muted mb-8">
             <span className="w-2 h-2 rounded-full bg-neural-green animate-pulse" />
             Available for opportunities
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-4 tracking-tight">
-            <span className="text-white">{personalInfo.name}</span>
+            <span className="text-theme-fg">{personalInfo.name}</span>
           </h1>
 
           <div className="h-12 sm:h-14 flex items-center justify-center mb-6">
@@ -70,11 +72,11 @@ export default function HeroSection() {
             </span>
           </div>
 
-          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-theme-fg-muted text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
             {personalInfo.tagline}
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-12 text-sm text-gray-400">
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-12 text-sm text-theme-fg-muted">
             <span className="flex items-center gap-1.5">
               <MapPin size={14} className="text-neural-cyan" />
               {personalInfo.location}
@@ -84,6 +86,15 @@ export default function HeroSection() {
                 <Mail size={14} className="text-neural-cyan" />
                 {personalInfo.email}
               </span>
+            ) : null}
+            {personalInfo.phone ? (
+              <a
+                href={`tel:${personalInfo.phone.replace(/\D/g, "")}`}
+                className="flex items-center gap-1.5 hover:text-neural-cyan transition-colors"
+              >
+                <Phone size={14} className="text-neural-cyan" />
+                {personalInfo.phone}
+              </a>
             ) : null}
             {personalInfo.linkedin && (
               <a
@@ -110,7 +121,7 @@ export default function HeroSection() {
                 <div className="text-2xl sm:text-3xl font-bold text-neural-cyan">
                   {stat.value}
                 </div>
-                <div className="text-xs text-gray-500 mt-1">{stat.label}</div>
+                <div className="text-xs text-theme-fg-subtle mt-1">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -120,7 +131,7 @@ export default function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
-            className="inline-flex items-center gap-2 text-gray-500 hover:text-neural-cyan transition-colors"
+            className="inline-flex items-center gap-2 text-theme-fg-subtle hover:text-neural-cyan transition-colors"
           >
             <ArrowDown size={16} className="animate-bounce" />
             Scroll to explore

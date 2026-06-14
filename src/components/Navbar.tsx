@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { personalInfo } from "@/data/resume-data";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -13,6 +14,16 @@ const navLinks = [
   { href: "#testimonials", label: "Testimonials" },
   { href: "#contact", label: "Contact" },
 ];
+
+function contactHref(): string {
+  if (personalInfo.email) return `mailto:${personalInfo.email}`;
+  if (personalInfo.phone) return `tel:${personalInfo.phone.replace(/\D/g, "")}`;
+  return personalInfo.linkedin || "#contact";
+}
+
+function contactOpensNewTab(): boolean {
+  return !personalInfo.email && !personalInfo.phone && Boolean(personalInfo.linkedin);
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -38,39 +49,39 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <a href="#" className="text-lg font-bold text-gradient-cyan">
             {personalInfo.name.split(" ")[0]}
-            <span className="text-gray-400 font-normal">.profile</span>
+            <span className="text-theme-fg-muted font-normal">.profile</span>
           </a>
 
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-2">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-2 text-sm text-gray-400 hover:text-neural-cyan transition-colors rounded-lg hover:bg-neural-surface/50"
+                className="px-3 py-2 text-sm text-theme-fg-muted hover:text-neural-cyan transition-colors rounded-lg hover:bg-neural-surface/50"
               >
                 {link.label}
               </a>
             ))}
+            <ThemeToggle />
             <a
-              href={
-                personalInfo.email
-                  ? `mailto:${personalInfo.email}`
-                  : personalInfo.linkedin || "#contact"
-              }
-              target={personalInfo.email ? undefined : "_blank"}
-              rel={personalInfo.email ? undefined : "noopener noreferrer"}
-              className="ml-2 px-4 py-2 text-sm bg-neural-cyan/10 text-neural-cyan border border-neural-cyan/20 rounded-lg hover:bg-neural-cyan/20 transition-all"
+              href={contactHref()}
+              target={contactOpensNewTab() ? "_blank" : undefined}
+              rel={contactOpensNewTab() ? "noopener noreferrer" : undefined}
+              className="px-4 py-2 text-sm bg-neural-cyan/10 text-neural-cyan border border-neural-cyan/20 rounded-lg hover:bg-neural-cyan/20 transition-all"
             >
               Get in Touch
             </a>
           </div>
 
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-gray-400 hover:text-white"
+            className="p-2 text-theme-fg-muted hover:text-theme-fg"
           >
             {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
+        </div>
         </div>
       </div>
 
@@ -88,7 +99,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block px-3 py-2 text-gray-400 hover:text-neural-cyan transition-colors rounded-lg"
+                  className="block px-3 py-2 text-theme-fg-muted hover:text-neural-cyan transition-colors rounded-lg"
                 >
                   {link.label}
                 </a>

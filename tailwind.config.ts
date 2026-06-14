@@ -9,11 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        theme: {
+          fg: "rgb(var(--theme-fg) / <alpha-value>)",
+          "fg-soft": "rgb(var(--theme-fg-soft) / <alpha-value>)",
+          "fg-muted": "rgb(var(--theme-fg-muted) / <alpha-value>)",
+          "fg-subtle": "rgb(var(--theme-fg-subtle) / <alpha-value>)",
+        },
         neural: {
-          bg: "#020617",
-          surface: "#0f172a",
-          card: "#1e293b",
-          border: "#334155",
+          bg: "rgb(var(--neural-bg) / <alpha-value>)",
+          surface: "rgb(var(--neural-surface) / <alpha-value>)",
+          card: "rgb(var(--neural-card) / <alpha-value>)",
+          border: "rgb(var(--neural-border) / <alpha-value>)",
           cyan: "#06b6d4",
           purple: "#6366f1",
           pink: "#ec4899",

@@ -19,7 +19,7 @@ export default function SkillsSection() {
           <div className="flex items-center gap-3 mb-12">
             <div className="h-px flex-1 bg-gradient-to-r from-neural-purple/50 to-transparent" />
             <span className="text-neural-purple font-mono text-sm">02</span>
-            <h2 className="text-3xl sm:text-4xl font-bold">Skills & Expertise</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-theme-fg">Skills & Expertise</h2>
             <div className="h-px flex-1 bg-gradient-to-l from-neural-purple/50 to-transparent" />
           </div>
         </motion.div>

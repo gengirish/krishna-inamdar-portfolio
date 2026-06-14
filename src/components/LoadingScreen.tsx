@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const bootLines = [
   "NEURAL_PORTFOLIO v2.4.0",
   "Initializing wholesale account graph...",
-  "Loading 8+ years of analytics + retail signals...",
+  "Loading 9+ years of analytics + retail signals...",
   "Walmart account node [PRIMARY] online",
   "Marketplace + distribution subgraphs [LINKED]",
   "System ready. Welcome.",
@@ -38,7 +38,7 @@ export default function LoadingScreen() {
         >
           <div className="max-w-lg w-full px-6">
             <div className="font-mono text-sm text-neural-cyan mb-4">BOOT_SEQUENCE</div>
-            <div className="space-y-2 font-mono text-xs text-gray-400 min-h-[180px]">
+            <div className="space-y-2 font-mono text-xs text-theme-fg-muted min-h-[180px]">
               {lines.map((line, i) => (
                 <motion.div
                   key={i}

@@ -89,15 +89,15 @@ export default function ChatWidget() {
               <div className="flex items-center gap-2">
                 <Bot size={18} className="text-neural-cyan" />
                 <div>
-                  <h3 className="text-sm font-semibold text-white">
+                  <h3 className="text-sm font-semibold text-theme-fg">
                     Talk to My Resume
                   </h3>
-                  <p className="text-xs text-gray-500">AI-powered assistant</p>
+                  <p className="text-xs text-theme-fg-subtle">AI-powered assistant</p>
                 </div>
               </div>
               <button
                 onClick={() => setOpen(false)}
-                className="p-1 text-gray-500 hover:text-white transition-colors"
+                className="p-1 text-theme-fg-subtle hover:text-theme-fg transition-colors"
               >
                 <X size={16} />
               </button>
@@ -127,8 +127,8 @@ export default function ChatWidget() {
                   <div
                     className={`max-w-[80%] px-3 py-2 rounded-xl text-sm ${
                       msg.role === "user"
-                        ? "bg-neural-purple/20 text-gray-200"
-                        : "bg-neural-surface text-gray-300"
+                        ? "bg-neural-purple/20 text-theme-fg"
+                        : "bg-neural-surface text-theme-fg-soft"
                     }`}
                   >
                     {msg.content}
@@ -142,13 +142,13 @@ export default function ChatWidget() {
                   </div>
                   <div className="px-3 py-2 rounded-xl bg-neural-surface">
                     <div className="flex gap-1">
-                      <span className="w-2 h-2 bg-gray-500 rounded-full animate-bounce" />
+                      <span className="w-2 h-2 bg-theme-fg-subtle rounded-full animate-bounce" />
                       <span
-                        className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"
+                        className="w-2 h-2 bg-theme-fg-subtle rounded-full animate-bounce"
                         style={{ animationDelay: "0.1s" }}
                       />
                       <span
-                        className="w-2 h-2 bg-gray-500 rounded-full animate-bounce"
+                        className="w-2 h-2 bg-theme-fg-subtle rounded-full animate-bounce"
                         style={{ animationDelay: "0.2s" }}
                       />
                     </div>
@@ -166,7 +166,7 @@ export default function ChatWidget() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && sendMessage()}
                   placeholder="Ask about Krishna's experience..."
-                  className="flex-1 bg-neural-surface border border-neural-border/30 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-neural-cyan/50"
+                  className="flex-1 bg-neural-surface border border-neural-border/30 rounded-lg px-3 py-2 text-sm text-theme-fg placeholder:text-theme-fg-subtle focus:outline-none focus:border-neural-cyan/50"
                 />
                 <button
                   onClick={sendMessage}
