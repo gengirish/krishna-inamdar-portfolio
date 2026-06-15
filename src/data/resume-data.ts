@@ -4,9 +4,9 @@ export const personalInfo = {
   tagline:
     "Results-driven data analyst and e-commerce professional — marketplace operations, SQL and advanced Excel, and business intelligence — with a Master's in Computer Information Systems and growing depth in AI-assisted analysis.",
   summary:
-    "Krishna is a Walmart Account Manager at L&R Distributors in New York, with a foundation in data analysis and multi-channel commerce. His path spans a Summer Internship at AINS, Inc., SQL- and Excel-backed reporting at Health Concepts, an e-commerce leadership sprint at Jet Line Products, regional management at POOLCORP, marketplace management at A.D. Sutton & Sons, and today's Walmart account work. He holds an MS in Computer Information Systems (American College of Commerce and Technology, 2015–2017) and a B.Tech in Information Technology from CHARUSAT (2010–2014).",
+    "Krishna is a Walmart Account Manager at L&R Distributors in New York, with a foundation in data analysis and multi-channel commerce. Her path spans a Summer Internship at AINS, Inc., SQL- and Excel-backed reporting at Health Concepts, an e-commerce leadership sprint at Jet Line Products, regional management at POOLCORP, marketplace management at A.D. Sutton & Sons, and today's Walmart account work. She holds an MS in Computer Information Systems (American College of Commerce and Technology, 2015–2017) and a B.Tech in Information Technology from CHARUSAT (2010–2014).",
   aiSummary:
-    "I'm the AI assistant for Krishna Inamdar's portfolio. Krishna is a Walmart Account Manager at L&R Distributors, with prior roles in e-commerce marketplaces, regional distribution, and data analysis. Ask about his resume, skills, or career path.",
+    "I'm the AI assistant for Krishna Inamdar's portfolio. Krishna is a Walmart Account Manager at L&R Distributors, with prior roles in e-commerce marketplaces, regional distribution, and data analysis. Ask about her resume, skills, or career path.",
   location: "Old Bridge, New Jersey, United States",
   linkedin: "https://www.linkedin.com/in/krishnainamdar25/",
   github: "",
@@ -284,12 +284,12 @@ export const certifications = [
 
 export const testimonials = [
   {
-    text: "\"Krishna pairs analytical rigor with marketplace execution — he turns sales and listing data into clear next steps for the team.\"",
+    text: "\"Krishna pairs analytical rigor with marketplace execution — she turns sales and listing data into clear next steps for the team.\"",
     author: "Cross-functional Partner",
     relationship: "Wholesale & E-commerce",
   },
   {
-    text: "\"He stays organized across channels and keeps marketing, operations, and fulfillment pointed in the same direction.\"",
+    text: "\"She stays organized across channels and keeps marketing, operations, and fulfillment pointed in the same direction.\"",
     author: "Operations Collaborator",
     relationship: "E-commerce & Distribution",
   },
